@@ -1,0 +1,52 @@
+DIRECTIVES
+
+Hilary and Keith
+
+Directives are basically the jsp version of an import statement.
+They are useful for code that can be re-used.
+
+You can import a package or another jsp file.
+The benefit of importing a package is that you are able to use 
+anything from the package without qualifying it with class
+names.
+
+Syntax: <%@ page ... %> 
+        <%@ include ... %>
+
+1. Package import example:
+Note: java.util* is being imported so that the Date() function
+does not need to be qualified with class names when 
+it is used.
+--------------------------------
+<%@ page import="java.util.*" %>
+
+<html>
+    <head>
+        <title>Package Import Example</title>
+    </head>
+
+    <body>
+        <p>
+            Current Date: <%= new Date() %>
+        </p>
+    </body>
+<html>
+------------------------------------
+
+2. Other jsp file import example
+Note: The jsp file (code from above) will be 
+imported to the code below.
+
+<html>
+    <head>
+        <title>Other JSP File Import Example</title>
+    </head>
+
+    <body>
+        <p>
+            The import statement will display everything
+            from the first example here:
+            <%@ include file="packageImportExample.jsp" %>
+        </p>
+    </body>
+<html>
